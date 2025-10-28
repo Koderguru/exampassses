@@ -457,7 +457,7 @@ export default function FirebaseAdminPage() {
                 {certifications.length === 0 ? (
                   <tr>
                     <td colSpan={6} className="px-6 py-12 text-center text-gray-500">
-                      No certifications in Firebase. Click "Add New Certificate"!
+                      No certifications in Firebase. Click &quot;Add New Certificate&quot;!
                     </td>
                   </tr>
                 ) : (

@@ -205,7 +205,7 @@ export default function ImportPage() {
         <div className="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
           <p className="text-sm text-yellow-800">
             <strong>⚠️ Note:</strong> This will create duplicate entries if you run it multiple times. 
-            Use "Clear Database" first if you want to re-import.
+            Use &quot;Clear Database&quot; first if you want to re-import.
           </p>
         </div>
       </div>

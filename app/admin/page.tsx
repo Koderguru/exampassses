@@ -354,7 +354,7 @@ export default function AdminPage() {
                 {certifications.length === 0 ? (
                   <tr>
                     <td colSpan={6} className="px-6 py-12 text-center text-gray-500">
-                      No certifications yet. Click "Add New Certificate" to get started!
+                      No certifications yet. Click &quot;Add New Certificate&quot; to get started!
                     </td>
                   </tr>
                 ) : (
@@ -424,7 +424,7 @@ export default function AdminPage() {
           <h3 className="font-bold text-blue-900 mb-3">📝 Quick Tips:</h3>
           <ul className="space-y-2 text-sm text-blue-800">
             <li>• Upload images to <a href="https://imgur.com" target="_blank" className="underline font-semibold">imgur.com</a> or <a href="https://imgbb.com" target="_blank" className="underline font-semibold">imgbb.com</a></li>
-            <li>• Copy the direct image link and paste it in the "Image URL" field</li>
+            <li>• Copy the direct image link and paste it in the &quot;Image URL&quot; field</li>
             <li>• Changes are saved to localStorage (browser storage)</li>
             <li>• Export your data regularly to avoid losing it</li>
           </ul>
