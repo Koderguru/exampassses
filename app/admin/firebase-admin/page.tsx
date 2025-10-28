@@ -49,6 +49,11 @@ export default function FirebaseAdminPage() {
   const [loginError, setLoginError] = useState('')
 
   useEffect(() => {
+    if (!auth) {
+      setLoading(false)
+      return
+    }
+
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user)
       setLoading(false)
@@ -61,6 +66,11 @@ export default function FirebaseAdminPage() {
   }, [])
 
   const loadCertifications = async () => {
+    if (!db) {
+      console.error('Firebase not configured')
+      return
+    }
+
     try {
       const q = query(collection(db, 'certifications'), orderBy('createdAt', 'desc'))
       const querySnapshot = await getDocs(q)
@@ -81,6 +91,11 @@ export default function FirebaseAdminPage() {
     e.preventDefault()
     setLoginError('')
     
+    if (!auth) {
+      setLoginError('Firebase is not configured. Please add environment variables.')
+      return
+    }
+
     try {
       await signInWithEmailAndPassword(auth, email, password)
       setEmail('')
@@ -92,6 +107,8 @@ export default function FirebaseAdminPage() {
   }
 
   const handleLogout = async () => {
+    if (!auth) return
+
     try {
       await signOut(auth)
     } catch (error) {
@@ -120,6 +137,11 @@ export default function FirebaseAdminPage() {
   }
 
   const handleDelete = async (id: string) => {
+    if (!db) {
+      alert('Firebase is not configured. Please add environment variables.')
+      return
+    }
+
     if (!confirm('Are you sure you want to delete this certification?')) return
 
     try {
@@ -133,6 +155,11 @@ export default function FirebaseAdminPage() {
 
   const handleSave = async () => {
     if (!editingCert) return
+
+    if (!db) {
+      alert('Firebase is not configured. Please add environment variables.')
+      return
+    }
 
     if (!editingCert.name || !editingCert.code || !editingCert.category) {
       alert('Please fill in all required fields!')

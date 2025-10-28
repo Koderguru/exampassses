@@ -22,6 +22,11 @@ export default function ImportPage() {
   } | null>(null)
 
   const importToFirebase = async () => {
+    if (!db) {
+      alert('Firebase is not configured. Please add environment variables.')
+      return
+    }
+
     setImporting(true)
     setResult(null)
 
@@ -64,6 +69,11 @@ export default function ImportPage() {
   }
 
   const clearDatabase = async () => {
+    if (!db) {
+      alert('Firebase is not configured. Please add environment variables.')
+      return
+    }
+
     if (!confirm('⚠️ This will DELETE ALL certifications from Firebase! Are you sure?')) {
       return
     }
