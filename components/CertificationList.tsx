@@ -14,8 +14,8 @@ interface Certification {
   gradient: string
   category: string
   imageUrl: string
-  price: number
-  description: string
+  price?: number
+  description?: string
 }
 
 export default function CertificationList() {

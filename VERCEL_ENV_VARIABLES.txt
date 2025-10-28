@@ -1,0 +1,48 @@
+===============================================
+🔥 VERCEL ENVIRONMENT VARIABLES 🔥
+===============================================
+
+Copy paste these variables in Vercel Dashboard:
+Settings → Environment Variables → Add New
+
+-----------------------------------------------
+
+NEXT_PUBLIC_FIREBASE_API_KEY=AIzaSyBmVOABasFllynnTkHdytg4jkd5qBDCPtQ
+
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=blackhat-store.firebaseapp.com
+
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=blackhat-store
+
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=blackhat-store.firebasestorage.app
+
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=922096818947
+
+NEXT_PUBLIC_FIREBASE_APP_ID=1:922096818947:web:37ccf97b0b9726bb6d6736
+
+NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=G-KC5RVTD15P
+
+-----------------------------------------------
+
+📝 INSTRUCTIONS:
+
+1. Go to Vercel Dashboard: https://vercel.com/dashboard
+2. Select your project: "blackhat-store"
+3. Go to: Settings → Environment Variables
+4. Add each variable ONE BY ONE:
+   - Click "Add New"
+   - Name: NEXT_PUBLIC_FIREBASE_API_KEY
+   - Value: AIzaSyBmVOABasFllynnTkHdytg4jkd5qBDCPtQ
+   - Apply to: Production, Preview, Development (all 3 checked)
+   - Click "Save"
+   
+5. Repeat for all 7 variables above
+6. After adding all variables, go to Deployments tab
+7. Click "Redeploy" on the latest deployment
+
+⚠️ IMPORTANT:
+- Without these variables, Firebase Admin Panel will NOT work
+- Main website will work but won't load data from Firebase
+- All 7 variables are REQUIRED
+
+===============================================
+
