@@ -26,36 +26,43 @@ export default function CertificationList() {
 
   useEffect(() => {
     // Try to load from Firebase first
-    try {
-      const q = query(collection(db, 'certifications'), orderBy('createdAt', 'desc'))
-      
-      // Real-time listener for Firebase
-      const unsubscribe = onSnapshot(q, (querySnapshot) => {
-        if (!querySnapshot.empty) {
-          const firebaseCerts: Certification[] = []
-          querySnapshot.forEach((doc) => {
-            firebaseCerts.push({ id: doc.id, ...doc.data() } as Certification)
-          })
-          
-          if (firebaseCerts.length > 0) {
-            setCertifications(firebaseCerts)
-            setUsingFirebase(true)
-            console.log('🔥 Loaded from Firebase:', firebaseCerts.length, 'certifications')
+    if (db) {
+      try {
+        const q = query(collection(db, 'certifications'), orderBy('createdAt', 'desc'))
+        
+        // Real-time listener for Firebase
+        const unsubscribe = onSnapshot(q, (querySnapshot) => {
+          if (!querySnapshot.empty) {
+            const firebaseCerts: Certification[] = []
+            querySnapshot.forEach((doc) => {
+              firebaseCerts.push({ id: doc.id, ...doc.data() } as Certification)
+            })
+            
+            if (firebaseCerts.length > 0) {
+              setCertifications(firebaseCerts)
+              setUsingFirebase(true)
+              console.log('🔥 Loaded from Firebase:', firebaseCerts.length, 'certifications')
+            }
+          } else {
+            // Fallback to localStorage or default
+            loadLocalData()
           }
-        } else {
-          // Fallback to localStorage or default
+          setLoading(false)
+        }, (error) => {
+          console.error('Firebase error, using local data:', error)
           loadLocalData()
-        }
-        setLoading(false)
-      }, (error) => {
+          setLoading(false)
+        })
+
+        return () => unsubscribe()
+      } catch (error) {
         console.error('Firebase error, using local data:', error)
         loadLocalData()
         setLoading(false)
-      })
-
-      return () => unsubscribe()
-    } catch (error) {
-      console.error('Firebase not configured, using local data:', error)
+      }
+    } else {
+      // Firebase not configured, use local data
+      console.log('Firebase not configured, using local data')
       loadLocalData()
       setLoading(false)
     }
