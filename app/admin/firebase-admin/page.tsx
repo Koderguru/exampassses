@@ -21,6 +21,9 @@ import {
   orderBy 
 } from 'firebase/firestore'
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic'
+
 interface Certification {
   id: string
   name: string

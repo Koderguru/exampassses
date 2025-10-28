@@ -3,6 +3,9 @@
 import { motion } from 'framer-motion'
 import CertificationList from '@/components/CertificationList'
 
+// Force dynamic rendering to prevent Firebase errors during build
+export const dynamic = 'force-dynamic'
+
 export default function Home() {
   return (
     <>

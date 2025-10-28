@@ -8,6 +8,9 @@ import { certifications } from '@/data/certifications'
 import { FiUpload, FiTrash2, FiCheckCircle, FiAlertCircle } from 'react-icons/fi'
 import Link from 'next/link'
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic'
+
 export default function ImportPage() {
   const [importing, setImporting] = useState(false)
   const [clearing, setClearing] = useState(false)
